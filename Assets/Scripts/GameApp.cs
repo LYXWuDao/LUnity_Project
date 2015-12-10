@@ -17,6 +17,8 @@ public class GameApp : LABehaviour
     /// </summary>
     public override void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         // 创建2d ui 相机
         UIPanel panel = NGUITools.CreateUI(false);
         UIRoot uiRoot = panel.GetComponent<UIRoot>();
@@ -25,6 +27,9 @@ public class GameApp : LABehaviour
         UICamera uiCamera = uiRoot.GetComponentInChildren<UICamera>();
         // 创建所有界面的根节点
         GameObject root = LCSCompHelper.Create("_ui root", uiCamera.transform);
+
+        // 加载各种资源
+
     }
 
     // Use this for initialization
