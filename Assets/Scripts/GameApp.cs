@@ -1,5 +1,6 @@
 ﻿using LGame.LBehaviour;
 using LGame.LCommon;
+using LGame.LUI;
 using UnityEngine;
 using System.Collections;
 
@@ -29,6 +30,7 @@ public class GameApp : LABehaviour
         GameObject root = LCSCompHelper.Create("_ui root", uiCamera.transform);
 
         // 加载各种资源
+        LCSUIManage.OpenWindow("uiLogin", "UI/uiLogin.data");
 
     }
 
