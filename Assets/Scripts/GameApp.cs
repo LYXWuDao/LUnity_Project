@@ -26,10 +26,17 @@ public class GameApp : LABehaviour
         uiRoot.scalingStyle = UIRoot.Scaling.Constrained;
         // 找到创建的 ui 相机
         UICamera uiCamera = uiRoot.GetComponentInChildren<UICamera>();
+        if (uiCamera == null) return;
+        LCSUIManage.UIMainCamera = uiCamera;
         // 创建所有界面的根节点
         GameObject root = LCSCompHelper.Create("_ui root", uiCamera.transform);
-
+        if (root == null) return;
+        LCSUIManage.UIRoot = root.transform;
         // 加载各种资源
+
+
+
+        // 资源加载完毕打开登陆界面
         SLGameTools.OpenUI(ELUI.Login);
     }
 
