@@ -30,14 +30,13 @@ public class GameApp : LABehaviour
         GameObject root = LCSCompHelper.Create("_ui root", uiCamera.transform);
 
         // 加载各种资源
-        LCSUIManage.OpenWindow("uiLogin", "UI/uiLogin.data");
-
+        SLGameTools.OpenUI(ELUI.Login);
     }
 
     // Use this for initialization
     public override void Start()
     {
-       
+
     }
 
     // Update is called once per frame
