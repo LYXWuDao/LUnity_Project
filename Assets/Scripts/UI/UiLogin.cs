@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LGame.LBehaviour;
+using LGame.LDebug;
 using LGame.LUI;
 
 /***
