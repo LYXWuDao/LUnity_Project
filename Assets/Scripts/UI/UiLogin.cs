@@ -17,23 +17,38 @@ using UnityEngine;
 
 public sealed class UiLogin : LAUIBehaviour
 {
+    /// <summary>
+    /// 进入按钮
+    /// </summary>
+    [NonSerialized]
+    public GameObject mEnterBtn = null;
 
-    public override void Awake()
+    public override void OnAwake()
     {
-
+        mEnterBtn = LCSCompHelper.FindGameObject(gameObject, "content/enter_btn");
     }
 
-    public override void Start()
+    public override void OnStart()
     {
-        GameObject enter = LCSCompHelper.FindGameObject(gameObject, "content/enter_btn");
-
-        CLTweenEvent.BeginScale(enter, 10, Vector3.zero, Vector3.one);
-        CLTweenEvent.BeginScale(enter, 10, Vector3.zero, Vector3.one);
+        CLTweenEvent.BeginScale(mEnterBtn, 0.5f, new Vector3(0.5f, 0.5f, 0.5f), Vector3.one);
     }
 
-    public override void OnUpdate(float deltaTime)
+    /// <summary>
+    /// 清理数据
+    /// </summary>
+    public override void OnClear()
     {
+        mEnterBtn = null;
+    }
 
+    /// <summary>
+    /// 鼠标单击
+    /// </summary>
+    /// <param name="btn"></param>
+    public override void OnCollider(GameObject btn)
+    {
+        if (btn == null) return;
+        SLDebugHelper.WriteError(btn.name);
     }
 
 }
