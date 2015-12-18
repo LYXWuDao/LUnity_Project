@@ -13,20 +13,20 @@ using LGame.LJson;
  */
 using LGame.LSource;
 
-public sealed class SLGameDataManage : LATManager<LCJson>
+public sealed class SLGameDataManage : ATLManager<CLJson>
 {
 
     /// <summary>
     /// 查找保存的数据
     /// </summary>
     /// <param name="tableName">数据表的名字</param>
-    public static LCJson FindGameData(string tableName)
+    public static CLJson FindGameData(string tableName)
     {
-        LCJson data = Find<SLGameDataManage>(tableName);
+        CLJson data = Find<SLGameDataManage>(tableName);
         if (data != null) return data;
-        string json = LCSManageSource.LoadTextAsset(tableName, "Data/" + tableName + ".txt");
+        string json = SLManageSource.LoadTextAsset(tableName, "Data/" + tableName + ".txt");
         if (string.IsNullOrEmpty(json)) return null;
-        data = new LCJson(json);
+        data = new CLJson(json);
         Add<SLGameDataManage>(tableName, data);
         return data;
     }

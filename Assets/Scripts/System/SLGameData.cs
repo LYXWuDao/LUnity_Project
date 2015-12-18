@@ -17,7 +17,7 @@ public sealed class SLGameData
     /// <returns></returns>
     public static CLUIEntity GetUiData(int id)
     {
-        LCJson uiData = SLGameDataManage.FindGameData("data_ui");
+        CLJson uiData = SLGameDataManage.FindGameData("data_ui");
         if (uiData == null) return null;
         for (int i = 0, len = uiData.Length; i < len; i++)
         {

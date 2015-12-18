@@ -10,7 +10,7 @@ using System.Collections;
  * 
  */
 
-public class GameApp : LABehaviour
+public class GameApp : ALBehaviour
 {
 
     /// <summary>
@@ -27,11 +27,11 @@ public class GameApp : LABehaviour
         // 找到创建的 ui 相机
         UICamera uiCamera = uiRoot.GetComponentInChildren<UICamera>();
         if (uiCamera == null) return;
-        LCSUIManage.UIMainCamera = uiCamera;
+        SLUIManage.UIMainCamera = uiCamera;
         // 创建所有界面的根节点
-        GameObject root = LCSCompHelper.Create("_ui root", uiCamera.transform);
+        GameObject root = SLCompHelper.Create("_ui root", uiCamera.transform);
         if (root == null) return;
-        LCSUIManage.UIRoot = root.transform;
+        SLUIManage.UIRoot = root.transform;
         // 加载各种资源
 
 

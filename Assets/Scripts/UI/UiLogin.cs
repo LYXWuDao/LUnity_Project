@@ -15,7 +15,7 @@ using UnityEngine;
  * 
  */
 
-public sealed class UiLogin : LAUIBehaviour
+public sealed class UiLogin : ALUIBehaviour
 {
     /// <summary>
     /// 进入按钮
@@ -25,7 +25,7 @@ public sealed class UiLogin : LAUIBehaviour
 
     public override void OnAwake()
     {
-        mEnterBtn = LCSCompHelper.FindGameObject(gameObject, "content/enter_btn");
+        mEnterBtn = SLCompHelper.FindGameObject(gameObject, "content/enter_btn");
     }
 
     public override void OnStart()

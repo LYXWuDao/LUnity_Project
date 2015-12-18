@@ -20,7 +20,7 @@ public sealed class SLGameTools
     {
         CLUIEntity entity = SLGameData.GetUiData((int)ui);
         if (entity == null) return;
-        LCSUIManage.OpenWindow(entity.WinName, entity.WinPath, entity.WinScript);
+        SLUIManage.OpenWindow(entity.WinName, entity.WinPath, entity.WinScript);
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ public sealed class SLGameTools
     {
         CLUIEntity entity = SLGameData.GetUiData((int)ui);
         if (entity == null) return;
-        LCSUIManage.CloseWindow(entity.WinName);
+        SLUIManage.CloseWindow(entity.WinName);
     }
 
     /// <summary>
@@ -43,13 +43,13 @@ public sealed class SLGameTools
         if (uId <= 0)
         {
             // 刷新当前打开的所有界面
-            LCSUIManage.RefreshWindow(string.Empty);
+            SLUIManage.RefreshWindow(string.Empty);
             return;
         }
         // 刷新某个界面
         CLUIEntity entity = SLGameData.GetUiData(uId);
         if (entity == null) return;
-        LCSUIManage.RefreshWindow(entity.WinName);
+        SLUIManage.RefreshWindow(entity.WinName);
     }
 
 }
