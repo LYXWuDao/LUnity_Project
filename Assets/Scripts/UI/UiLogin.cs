@@ -30,7 +30,7 @@ public sealed class UiLogin : ALUIBehaviour
 
     public override void OnStart()
     {
-        CLDelayAction.BeginAction(gameObject, 1f, delegate()
+        CLDelayAction.BeginAction(1f, delegate()
         {
             CLTweenEvent.BeginScale(mEnterBtn, 1f, new Vector3(0.5f, 0.5f, 0.5f), Vector3.one);
         });
