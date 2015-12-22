@@ -15,7 +15,7 @@ using UnityEngine;
  * 
  */
 
-public sealed class UiLogin : ALUIBehaviour
+public sealed class UiLogin : CLUIBehaviour
 {
     /// <summary>
     /// 进入按钮
@@ -24,13 +24,13 @@ public sealed class UiLogin : ALUIBehaviour
     public GameObject mEnterBtn = null;
 
     /// <summary>
-    /// 标题
+    /// 游戏标题
     /// </summary>
     [NonSerialized]
     public GameObject mTitle = null;
 
     /// <summary>
-    /// 区
+    /// 服务器区
     /// </summary>
     [NonSerialized]
     public GameObject mArean = null;
