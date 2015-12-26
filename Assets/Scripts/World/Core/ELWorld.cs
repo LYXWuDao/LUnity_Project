@@ -17,5 +17,10 @@ public enum ELWorld
     /// </summary>
     None = 0,
 
+    /// <summary>
+    /// 创建角色
+    /// </summary>
+    CreatePlayer = 1,
+
 }
 

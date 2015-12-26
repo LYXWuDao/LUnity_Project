@@ -82,7 +82,7 @@ public sealed class CLUILogin : CLUIBehaviour
         string btnName = btn.name;
         if (btnName == "enter_btn")
         {
-
+            SLGameTools.OpenToWorld(ELWorld.CreatePlayer);
         }
     }
 
