@@ -15,7 +15,7 @@ using UnityEngine;
  * 
  */
 
-public sealed class UiLogin : CLUIBehaviour
+public sealed class CLUILogin : CLUIBehaviour
 {
     /// <summary>
     /// 进入按钮
