@@ -22,6 +22,9 @@ public class GameApp : ALBehaviour
 
         // 创建2d ui 相机
         UIPanel panel = NGUITools.CreateUI(false);
+
+        DontDestroyOnLoad(panel.gameObject);
+
         UIRoot uiRoot = panel.GetComponent<UIRoot>();
         uiRoot.scalingStyle = UIRoot.Scaling.Constrained;
         // 找到创建的 ui 相机

@@ -82,7 +82,8 @@ public sealed class UiLogin : ALUIBehaviour
         string btnName = btn.name;
         if (btnName == "enter_btn")
         {
-
+            SLGameTools.OpenToWorld();
+            SLGameTools.CloseUI(ELUI.Login);
         }
     }
 

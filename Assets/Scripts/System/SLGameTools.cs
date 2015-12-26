@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using LGame.LJson;
 using LGame.LUI;
+using LGame.LSource;
+using UnityEngine;
 
 
 /*****
@@ -50,6 +52,13 @@ public sealed class SLGameTools
         CLUIEntity entity = SLGameData.GetUiData(uId);
         if (entity == null) return;
         SLUIManage.RefreshWindow(entity.WinName);
+    }
+
+    public static void OpenToWorld()
+    {
+        SLManageSource.LoadAssetSource("CreatePlayer.data", "Scenes/CreatePlayer.data");
+
+        Application.LoadLevel("CreatePlayer");
     }
 
 }
