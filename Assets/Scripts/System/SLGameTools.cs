@@ -65,6 +65,7 @@ public sealed class SLGameTools
             SLDebugHelper.WriteError("场景数据不存在， id = ", world);
             return;
         }
+
         // 打开跳转界面
         // 开始跳转场景
         SLScenesManage.AsyncOpenToScenes(entity.SceneName, entity.ScenePath, entity.SceneScript, delegate()
