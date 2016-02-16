@@ -21,5 +21,10 @@ public enum ELUI
     /// </summary>
     Login = 1,
 
+    /// <summary>
+    /// 过场景界面
+    /// </summary>
+    Loading = 2,
+
 }
 

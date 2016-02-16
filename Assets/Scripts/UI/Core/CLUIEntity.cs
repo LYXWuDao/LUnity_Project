@@ -12,7 +12,7 @@ public class CLUIEntity
 {
 
     /// <summary>
-    /// id 
+    /// 界面id 
     /// </summary>
     public int Id = 0;
 

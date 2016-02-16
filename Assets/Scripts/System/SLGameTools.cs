@@ -4,6 +4,7 @@ using LGame.LDebug;
 using LGame.LJson;
 using LGame.LScenes;
 using LGame.LUI;
+using LGame.LCommon;
 
 
 /*****
@@ -23,6 +24,17 @@ public sealed class SLGameTools
         CLUIEntity entity = SLGameData.GetUiData((int)ui);
         if (entity == null) return;
         SLUIManage.OpenWindow(entity.WinName, entity.WinPath, entity.WinScript);
+    }
+
+    /// <summary>
+    /// 发现界面
+    /// </summary>
+    /// <param name="ui"></param>
+    public static CLUIBehaviour FindUI(ELUI ui)
+    {
+        CLUIEntity entity = SLGameData.GetUiData((int)ui);
+        if (entity == null) return null;
+        return SLUIManage.FindWindow(entity.WinName);
     }
 
     /// <summary>
@@ -73,15 +85,19 @@ public sealed class SLGameTools
         }
 
         SLUIManage.CloseAllWindow();
-        // 打开跳转界面
 
         // 开始跳转场景
-        SLScenesManage.AsyncOpenToScenes(entity.SceneName, entity.ScenePath, entity.SceneScript, delegate()
+        LoadSourceEntity loadEntity = SLScenesManage.AsyncOpenToScenes(entity.SceneName, entity.ScenePath, entity.SceneScript);
+
+        // 打开跳转界面
+        OpenUI(ELUI.Loading);
+        CLUILoading loading = FindUI(ELUI.Loading) as CLUILoading;
+        if (loading != null) loading.InitLoading(loadEntity, delegate ()
         {
+            CloseUI(ELUI.Loading);
             // 场景打开后，加载的界面
             OpenUI((ELUI)entity.SceneUiId);
         });
-
     }
 
 }

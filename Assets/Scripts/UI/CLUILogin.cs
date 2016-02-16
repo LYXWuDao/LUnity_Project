@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using LGame.LBehaviour;
 using LGame.LCommon;
-using LGame.LDebug;
 using LGame.LEvent;
 using LGame.LUI;
 using LGame.LUtils;
@@ -48,7 +45,7 @@ public sealed class CLUILogin : CLUIBehaviour
 
     public override void OnStart()
     {
-        CLDelayAction.BeginAction(1f, delegate()
+        CLDelayAction.BeginAction(1f, delegate ()
         {
             CLTweenEvent.BeginScale(mTitle, 0.7f, new Vector3(0.5f, 0.5f, 0.5f), Vector3.one * 1.1f);
             CLTweenEvent.BeginScaleImmediate(mTitle, 0.3f, Vector3.one * 1.1f, Vector3.one);
@@ -56,7 +53,7 @@ public sealed class CLUILogin : CLUIBehaviour
             CLTweenEvent.BeginScaleImmediate(mArean, 0.35f, Vector3.one * 0.5f, Vector3.one);
             CLTweenEvent.BeginScale(mEnterBtn, 0.5f, Vector3.one * 0.5f, Vector3.one);
 
-            CLDelayAction.BeginAction(1.3f, delegate()
+            CLDelayAction.BeginAction(1.3f, delegate ()
             {
                 SLCompHelper.FindComponet<UIButtonScale>(mArean);
                 SLCompHelper.FindComponet<UIButtonScale>(mEnterBtn);
