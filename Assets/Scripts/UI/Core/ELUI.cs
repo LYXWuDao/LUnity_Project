@@ -26,5 +26,10 @@ public enum ELUI
     /// </summary>
     Loading = 2,
 
+    /// <summary>
+    /// 创建角色
+    /// </summary>
+    CreatePlayer = 3,
+
 }
 

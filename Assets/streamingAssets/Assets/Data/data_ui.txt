@@ -1,1 +1,1 @@
-[{"Id":1,"WinName":"uiLogin","WinPath":"UI/uiLogin.data","WinScript":"UiLogin"}]
+[{"Id":1,"WinName":"uiLogin","WinPath":"UI/uiLogin.data","WinScript":"CLUILogin"},{"Id":2,"WinName":"uiLoading","WinPath":"UI/uiLoading.data","WinScript":"CLUILoading"},{"Id":3,"WinName":"uiCreatePlayer","WinPath":"UI/uiCreatePlayer.data","WinScript":"CLUICreatePlayer"}]
