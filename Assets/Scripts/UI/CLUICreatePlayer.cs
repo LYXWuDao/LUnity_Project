@@ -6,6 +6,7 @@ using LGame.LUI;
 using UnityEngine;
 using LGame.LCommon;
 using LGame.LDebug;
+using LGame.LEvent;
 
 /// <summary>
 /// 创建角色
@@ -114,13 +115,17 @@ public class CLUICreatePlayer : CLUIBehaviour
             PersonTemplate temp = mPtemps[i];
             if (i + 1 == index)
             {
-                temp.title.color = mBrightColor;
-                temp.icon.color = mBrightColor;
+                CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.3f, temp.title.color, mBrightColor);
+                CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.3f, temp.icon.color, mBrightColor);
+                CLTweenEvent.BeginScale(temp.obj, 0.2f, temp.trans.localScale, Vector3.one * 1.4f);
+                CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, Vector3.one * 1.4f, Vector3.one * 1.2f);
             }
             else
             {
-                temp.title.color = mGrayColor;
-                temp.icon.color = mGrayColor;
+                CLTweenEvent.BeginTweener();
+                CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, temp.trans.localScale, Vector3.one);
+                CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.2f, temp.title.color, mGrayColor);
+                CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.2f, temp.icon.color, mGrayColor);
             }
         }
     }

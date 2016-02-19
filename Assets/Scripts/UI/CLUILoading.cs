@@ -29,12 +29,6 @@ public sealed class CLUILoading : CLUIBehaviour
     /// </summary>
     private UISlider mSlider = null;
 
-    public override void OnAwake()
-    {
-        mSlider = SLCompHelper.FindComponet<UISlider>(gameObject, "content/progress");
-        mSlider.value = 0;
-    }
-
     /// <summary>
     /// 初始化
     /// </summary>
@@ -45,6 +39,12 @@ public sealed class CLUILoading : CLUIBehaviour
         mFinish = finish;
         mEntity = entity;
         mIsStart = entity != null;
+    }
+
+    public override void OnAwake()
+    {
+        mSlider = SLCompHelper.FindComponet<UISlider>(gameObject, "content/progress");
+        mSlider.value = 0;
     }
 
     /// <summary>
@@ -67,5 +67,13 @@ public sealed class CLUILoading : CLUIBehaviour
         }
 
         mSlider.value = mEntity.Progress;
+    }
+
+    public override void OnClear()
+    {
+        mEntity = null;
+        mFinish = null;
+        mIsStart = false;
+        mSlider = null;
     }
 }
