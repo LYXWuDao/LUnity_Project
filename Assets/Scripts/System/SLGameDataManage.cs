@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using LGame.LBase;
 using LGame.LCommon;
 using LGame.LJson;
 using LGame.LSource;
@@ -14,7 +13,7 @@ using LGame.LSource;
  * 
  */
 
-public sealed class SLGameDataManage : ATLManager<CLJson>
+public sealed class SLGameDataManage : CLTypeDicData<SLGameDataManage, string, CLJson>
 {
 
     /// <summary>
@@ -26,14 +25,14 @@ public sealed class SLGameDataManage : ATLManager<CLJson>
     /// <param name="tableName">数据表的名字</param>
     public static CLJson FindGameData(string tableName)
     {
-        CLJson data = Find<SLGameDataManage>(tableName);
+        CLJson data = Find(tableName);
         if (data != null) return data;
         LoadSourceEntity entity = SLManageSource.LoadTextSource(tableName, "Data/" + tableName + ".txt");
         if (entity == null) return null;
         string json = entity.TextContent;
         if (string.IsNullOrEmpty(json)) return null;
         data = new CLJson(json);
-        Add<SLGameDataManage>(tableName, data);
+        Add(tableName, data);
         return data;
     }
 

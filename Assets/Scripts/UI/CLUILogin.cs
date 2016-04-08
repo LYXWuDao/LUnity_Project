@@ -34,9 +34,9 @@ public sealed class CLUILogin : CLUIBehaviour
 
     public override void OnAwake()
     {
-        mEnterBtn = SLCompHelper.FindGameObject(gameObject, "content/enter_btn");
-        mTitle = SLCompHelper.FindGameObject(gameObject, "bg/title");
-        mArean = SLCompHelper.FindGameObject(gameObject, "content/arean");
+        mEnterBtn = SLToolsHelper.FindGameObject(gameObject, "content/enter_btn");
+        mTitle = SLToolsHelper.FindGameObject(gameObject, "bg/title");
+        mArean = SLToolsHelper.FindGameObject(gameObject, "content/arean");
 
         mEnterBtn.SetActive(false);
         mTitle.SetActive(false);
@@ -47,17 +47,17 @@ public sealed class CLUILogin : CLUIBehaviour
     {
         CLDelayAction.BeginAction(1.2f, delegate ()
         {
-            CLTweenEvent.BeginScale(mTitle, 0.7f, Vector3.one * 0.5f, Vector3.one * 1.2f);
-            CLTweenEvent.BeginScaleImmediate(mTitle, 0.1f, Vector3.one * 1.2f, Vector3.one);
+            //CLTweenEvent.BeginScale(mTitle, 0.7f, Vector3.one * 0.5f, Vector3.one * 1.2f);
+            //CLTweenEvent.BeginScaleImmediate(mTitle, 0.1f, Vector3.one * 1.2f, Vector3.one);
 
-            CLTweenEvent.BeginScaleImmediate(mArean, 0.6f, Vector3.one * 0.5f, Vector3.one);
-            CLTweenEvent.BeginScale(mEnterBtn, 0.8f, Vector3.one * 0.5f, Vector3.one);
+            //CLTweenEvent.BeginScaleImmediate(mArean, 0.6f, Vector3.one * 0.5f, Vector3.one);
+            //CLTweenEvent.BeginScale(mEnterBtn, 0.8f, Vector3.one * 0.5f, Vector3.one);
 
             CLDelayAction.BeginAction(1.3f, delegate ()
             {
                 // 增加按钮缩放效果
-                SLCompHelper.FindComponet<UIButtonScale>(mArean);
-                SLCompHelper.FindComponet<UIButtonScale>(mEnterBtn);
+                SLToolsHelper.FindComponet<UIButtonScale>(mArean);
+                SLToolsHelper.FindComponet<UIButtonScale>(mEnterBtn);
             });
         });
     }
@@ -65,7 +65,7 @@ public sealed class CLUILogin : CLUIBehaviour
     /// <summary>
     /// 清理数据
     /// </summary>
-    public override void OnClear()
+    protected override void OnClear()
     {
         mEnterBtn = null;
     }

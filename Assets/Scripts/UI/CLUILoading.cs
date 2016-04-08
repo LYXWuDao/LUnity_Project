@@ -43,7 +43,7 @@ public sealed class CLUILoading : CLUIBehaviour
 
     public override void OnAwake()
     {
-        mSlider = SLCompHelper.FindComponet<UISlider>(gameObject, "content/progress");
+        mSlider = SLToolsHelper.FindComponet<UISlider>(gameObject, "content/progress");
         mSlider.value = 0;
     }
 
@@ -51,7 +51,7 @@ public sealed class CLUILoading : CLUIBehaviour
     /// 更新进度条
     /// </summary>
     /// <param name="deltaTime"></param>
-    public override void OnUpdate(float deltaTime)
+    protected override void OnUpdate(float deltaTime)
     {
         if (!mIsStart || mSlider == null) return;
         // 加载完成
@@ -69,7 +69,7 @@ public sealed class CLUILoading : CLUIBehaviour
         mSlider.value = mEntity.Progress;
     }
 
-    public override void OnClear()
+    protected override void OnClear()
     {
         mEntity = null;
         mFinish = null;

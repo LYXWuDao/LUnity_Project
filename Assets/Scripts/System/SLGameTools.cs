@@ -74,13 +74,13 @@ public sealed class SLGameTools
         CLWorldEntity entity = SLGameData.GetWorldData((int)world);
         if (entity == null)
         {
-            SLDebugHelper.WriteError("场景数据不存在， id = " + world);
+            SLConsole.WriteError("场景数据不存在， id = " + world);
             return;
         }
 
         if (SLScenesManage.VerifyOpenScene(entity.SceneName))
         {
-            SLDebugHelper.WriteError("你在试图打开同一个场景!! SceneName = " + entity.SceneName);
+            SLConsole.WriteError("你在试图打开同一个场景!! SceneName = " + entity.SceneName);
             return;
         }
 

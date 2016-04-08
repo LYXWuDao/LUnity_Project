@@ -6,7 +6,7 @@ using LGame.LUI;
 using UnityEngine;
 using LGame.LCommon;
 using LGame.LDebug;
-using LGame.LEvent;
+using LGame.LUtils;
 
 /// <summary>
 /// 创建角色
@@ -46,7 +46,7 @@ public class CLUICreatePlayer : CLUIBehaviour
 
     public override void OnAwake()
     {
-        Transform ptrans = SLCompHelper.FindTransform(gameObject, "person");
+        Transform ptrans = SLToolsHelper.FindTransform(gameObject, "person");
         if (ptrans != null)
         {
             for (int i = 0, len = ptrans.childCount; i < len; i++)
@@ -54,13 +54,13 @@ public class CLUICreatePlayer : CLUIBehaviour
                 PersonTemplate temp = new PersonTemplate();
                 temp.trans = ptrans.GetChild(i);
                 temp.obj = temp.trans.gameObject;
-                temp.title = SLCompHelper.GetComponent<UISprite>(temp.obj, "title");
-                temp.icon = SLCompHelper.GetComponent<UISprite>(temp.obj, "icon");
+                temp.title = SLToolsHelper.GetComponent<UISprite>(temp.obj, "title");
+                temp.icon = SLToolsHelper.GetComponent<UISprite>(temp.obj, "icon");
                 mPtemps.Add(temp);
             }
         }
 
-        mPlayerName = SLCompHelper.GetComponent<UIInput>(gameObject, "content/nameinput/InputField");
+        mPlayerName = SLToolsHelper.GetComponent<UIInput>(gameObject, "content/nameinput/InputField");
 
         /// 默认选择魏国
         OnSelectCountry(1);
@@ -106,7 +106,7 @@ public class CLUICreatePlayer : CLUIBehaviour
         if (mPtemps == null || mPtemps.Count <= 0) return;
         if (index <= 0 || index > 4)
         {
-            SLDebugHelper.WriteError("创建的国家不合法!!!");
+            SLConsole.WriteError("创建的国家不合法!!!");
             return;
         }
         mSelectCountryType = index;
@@ -115,17 +115,17 @@ public class CLUICreatePlayer : CLUIBehaviour
             PersonTemplate temp = mPtemps[i];
             if (i + 1 == index)
             {
-                CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.3f, temp.title.color, mBrightColor);
-                CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.3f, temp.icon.color, mBrightColor);
-                CLTweenEvent.BeginScale(temp.obj, 0.2f, temp.trans.localScale, Vector3.one * 1.4f);
-                CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, Vector3.one * 1.4f, Vector3.one * 1.2f);
+                //CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.3f, temp.title.color, mBrightColor);
+                //CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.3f, temp.icon.color, mBrightColor);
+                //CLTweenEvent.BeginScale(temp.obj, 0.2f, temp.trans.localScale, Vector3.one * 1.4f);
+                //CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, Vector3.one * 1.4f, Vector3.one * 1.2f);
             }
             else
             {
-                CLTweenEvent.BeginTweener();
-                CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, temp.trans.localScale, Vector3.one);
-                CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.2f, temp.title.color, mGrayColor);
-                CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.2f, temp.icon.color, mGrayColor);
+                //CLTweenEvent.BeginTweener();
+                //CLTweenEvent.BeginScaleImmediate(temp.obj, 0.2f, temp.trans.localScale, Vector3.one);
+                //CLTweenEvent.BeginColorImmediate(temp.title.gameObject, 0.2f, temp.title.color, mGrayColor);
+                //CLTweenEvent.BeginColorImmediate(temp.icon.gameObject, 0.2f, temp.icon.color, mGrayColor);
             }
         }
     }
@@ -138,13 +138,13 @@ public class CLUICreatePlayer : CLUIBehaviour
         if (mPlayerName == null) return;
         if (mSelectCountryType <= 0 || mSelectCountryType > 4)
         {
-            SLDebugHelper.WriteError("创建的国家不合法!!!");
+            SLConsole.WriteError("创建的国家不合法!!!");
             return;
         }
 
         if (string.IsNullOrEmpty(mPlayerName.value))
         {
-            SLDebugHelper.WriteError("游戏名字不能为空!!!");
+            SLConsole.WriteError("游戏名字不能为空!!!");
             return;
         }
 

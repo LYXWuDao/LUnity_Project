@@ -2,7 +2,6 @@
 using LGame.LCommon;
 using LGame.LUI;
 using UnityEngine;
-using System.Collections;
 
 /***
  * 
@@ -29,12 +28,12 @@ public class GameApp : ALBehaviour
     /// <summary>
     /// 初始化游戏
     /// </summary>
-    public override void Awake()
+    protected override void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
         // 创建根节点， 所有动态创建的东西都放到这个下面， 包括 ui界面
-        GameObject gameRoot = SLCompHelper.Create("3d Root");
+        GameObject gameRoot = SLToolsHelper.Create("3d Root");
         DontDestroyOnLoad(gameRoot);
 
         Camera cam = FindObjectOfType<Camera>();
@@ -52,7 +51,7 @@ public class GameApp : ALBehaviour
         if (uiCamera == null) return;
         SLUIManage.UIMainCamera = uiCamera;
         // 创建所有界面的根节点
-        GameObject root = SLCompHelper.Create("_ui root", uiCamera.transform);
+        GameObject root = SLToolsHelper.Create("_ui root", uiCamera.transform);
         if (root == null) return;
         SLUIManage.UIRoot = root.transform;
         // 加载各种资源
@@ -63,28 +62,28 @@ public class GameApp : ALBehaviour
     }
 
     // Use this for initialization
-    public override void Start()
+    protected override void Start()
     {
 
     }
 
     // Update is called once per frame
-    public override void OnUpdate(float deltaTime)
+    protected override void OnUpdate(float deltaTime)
     {
 
     }
 
-    public override void OnClear()
+    protected override void OnClear()
     {
         _mainCamera = null;
     }
 
-    public override void OnApplicationPause()
+    protected override void OnApplicationPause()
     {
 
     }
 
-    public override void OnApplicationQuit()
+    protected override void OnApplicationQuit()
     {
 
     }
