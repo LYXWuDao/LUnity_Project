@@ -13,8 +13,10 @@ using LGame.LSource;
  * 
  */
 
-public sealed class SLGameDataManage : CLTypeDicData<SLGameDataManage, string, CLJson>
+public sealed class SLGameDataManage
 {
+
+    private static CLBaseDicData<string, CLJson> _dataManage = new CLBaseDicData<string, CLJson>();
 
     /// <summary>
     /// 查找保存的数据
@@ -25,14 +27,14 @@ public sealed class SLGameDataManage : CLTypeDicData<SLGameDataManage, string, C
     /// <param name="tableName">数据表的名字</param>
     public static CLJson FindGameData(string tableName)
     {
-        CLJson data = Find(tableName);
+        CLJson data = _dataManage.Find(tableName);
         if (data != null) return data;
         LoadSourceEntity entity = SLManageSource.LoadTextSource(tableName, "Data/" + tableName + ".txt");
         if (entity == null) return null;
         string json = entity.TextContent;
         if (string.IsNullOrEmpty(json)) return null;
         data = new CLJson(json);
-        Add(tableName, data);
+        _dataManage.Add(tableName, data);
         return data;
     }
 
