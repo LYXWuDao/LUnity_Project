@@ -47,11 +47,11 @@ public sealed class CLUILogin : CLUIBehaviour
     {
         CLDelayAction.BeginAction(1.2f, delegate ()
         {
-            //CLTweenEvent.BeginScale(mTitle, 0.7f, Vector3.one * 0.5f, Vector3.one * 1.2f);
-            //CLTweenEvent.BeginScaleImmediate(mTitle, 0.1f, Vector3.one * 1.2f, Vector3.one);
+            CLSerialTween.BeginScale(mTitle, 0.7f, Vector3.one * 0.5f, Vector3.one * 1.2f);
+            CLSerialTween.BeginScale(mTitle, 0.15f, Vector3.one * 1.2f, Vector3.one);
 
-            //CLTweenEvent.BeginScaleImmediate(mArean, 0.6f, Vector3.one * 0.5f, Vector3.one);
-            //CLTweenEvent.BeginScale(mEnterBtn, 0.8f, Vector3.one * 0.5f, Vector3.one);
+            CLParallelTween.BeginScale(mArean, 0.6f, Vector3.one * 0.5f, Vector3.one);
+            CLParallelTween.BeginScale(mEnterBtn, 0.8f, Vector3.one * 0.5f, Vector3.one);
 
             CLDelayAction.BeginAction(1.3f, delegate ()
             {
