@@ -1,5 +1,7 @@
 ﻿using LGame.LBehaviour;
 using LGame.LCommon;
+using LGame.LProfiler;
+using LGame.LSource;
 using LGame.LUI;
 using UnityEngine;
 
@@ -30,6 +32,8 @@ public class GameApp : ALBehaviour
     /// </summary>
     protected override void Awake()
     {
+        if (SLConfig.IsProfiler) CLProfiler.BeginProfiler();
+
         DontDestroyOnLoad(gameObject);
 
         // 创建根节点， 所有动态创建的东西都放到这个下面， 包括 ui界面
@@ -85,7 +89,7 @@ public class GameApp : ALBehaviour
 
     protected override void OnApplicationQuit()
     {
-
+        SLManageSource.RemoveAllSource();
     }
 
 }
