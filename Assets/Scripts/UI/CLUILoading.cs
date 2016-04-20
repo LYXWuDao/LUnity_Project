@@ -41,7 +41,7 @@ public sealed class CLUILoading : CLUIBehaviour
         mIsStart = entity != null;
     }
 
-    public override void OnAwake()
+    protected override void OnAwake()
     {
         mSlider = SLToolsHelper.FindComponet<UISlider>(gameObject, "content/progress");
         mSlider.value = 0;

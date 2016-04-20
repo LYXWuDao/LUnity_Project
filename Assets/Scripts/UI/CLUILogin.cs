@@ -32,7 +32,7 @@ public sealed class CLUILogin : CLUIBehaviour
     [NonSerialized]
     public GameObject mArean = null;
 
-    public override void OnAwake()
+    protected override void OnAwake()
     {
         mEnterBtn = SLToolsHelper.FindGameObject(gameObject, "content/enter_btn");
         mTitle = SLToolsHelper.FindGameObject(gameObject, "bg/title");
@@ -43,7 +43,7 @@ public sealed class CLUILogin : CLUIBehaviour
         mArean.SetActive(false);
     }
 
-    public override void OnStart()
+    protected override void OnStart()
     {
         CLDelayAction.BeginAction(1.2f, delegate ()
         {
@@ -74,13 +74,13 @@ public sealed class CLUILogin : CLUIBehaviour
     /// 鼠标单击
     /// </summary>
     /// <param name="btn">点击的按钮</param>
-    public override void OnCollider(GameObject btn)
+    protected override void OnCollider(GameObject btn)
     {
         if (btn == null) return;
         string btnName = btn.name;
         if (btnName == "enter_btn")
         {
-            SLGameTools.OpenToWorld(ELWorld.CreatePlayer);
+            SLGameTools.OpenToWorld(ELWorld.MajorCity);
         }
     }
 

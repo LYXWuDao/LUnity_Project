@@ -31,5 +31,9 @@ public enum ELUI
     /// </summary>
     CreatePlayer = 3,
 
+    /// <summary>
+    /// 主城界面
+    /// </summary>
+    ManjorCity = 4,
 }
 

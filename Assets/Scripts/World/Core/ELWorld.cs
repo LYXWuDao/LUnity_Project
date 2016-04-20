@@ -22,5 +22,10 @@ public enum ELWorld
     /// </summary>
     CreatePlayer = 1,
 
+    /// <summary>
+    /// 主场景
+    /// </summary>
+    MajorCity = 2,
+
 }
 

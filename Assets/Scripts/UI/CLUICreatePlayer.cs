@@ -44,7 +44,7 @@ public class CLUICreatePlayer : CLUIBehaviour
     /// </summary>
     private Color mBrightColor = new Color(255f / 255f, 255f / 255f, 255f / 255f);
 
-    public override void OnAwake()
+    protected override void OnAwake()
     {
         Transform ptrans = SLToolsHelper.FindTransform(gameObject, "person");
         if (ptrans != null)
@@ -66,7 +66,7 @@ public class CLUICreatePlayer : CLUIBehaviour
         OnSelectCountry(1);
     }
 
-    public override void OnCollider(GameObject btn)
+    protected override void OnCollider(GameObject btn)
     {
         if (btn == null) return;
         switch (btn.name)
