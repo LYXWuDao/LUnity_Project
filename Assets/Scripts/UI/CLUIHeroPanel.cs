@@ -5,10 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-/// <summary>
-/// 主界面
-/// </summary>
-public class CLUIMajorCitys : CLUIBehaviour
+public class CLUIHeroPanel : CLUIBehaviour
 {
 
     protected override void OnAwake()
@@ -16,7 +13,7 @@ public class CLUIMajorCitys : CLUIBehaviour
 
     }
 
-    protected override void OnClear()
+    protected override void OnStart()
     {
 
     }
@@ -26,16 +23,15 @@ public class CLUIMajorCitys : CLUIBehaviour
         if (btn == null) return;
         string btnName = btn.name;
 
-        switch (btnName)
+        if (btnName == "close")
         {
-            case "junying":
-                SLGameTools.OpenUI(ELUI.HeroPanel);
-                break;
-            case "buzhen":
-                break;
-            case "fuben":
-                break;
+            SLGameTools.CloseUI(ELUI.HeroPanel);
         }
+    }
+
+    protected override void OnClear()
+    {
+
     }
 
 }

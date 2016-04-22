@@ -1,1 +1,1 @@
-[{"Id":1,"SceneName":"wCreatePlayer","ScenePath":"Scenes/wCreatePlayer.data","SceneScript":"CLWCreatePlayer","SceneUiId":3}]
+[{"Id":1,"SceneName":"wCreatePlayer","ScenePath":"Scenes/wCreatePlayer.data","SceneScript":"CLWCreatePlayer","SceneUiId":3},{"Id":2,"SceneName":"wMajorCitys","ScenePath":"Scenes/wMajorCitys.data","SceneScript":"CLWMajorCitys","SceneUiId":4}]

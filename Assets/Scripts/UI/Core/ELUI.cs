@@ -35,5 +35,10 @@ public enum ELUI
     /// 主城界面
     /// </summary>
     ManjorCity = 4,
+
+    /// <summary>
+    /// 侠客面板
+    /// </summary>
+    HeroPanel = 5,
 }
 
