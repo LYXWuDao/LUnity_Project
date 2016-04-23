@@ -90,5 +90,56 @@ public sealed class SLGameData
         return worldEntity.ContainsKey(id) ? worldEntity[id] : null;
     }
 
+    /// <summary>
+    /// 导入侠客的数据
+    /// </summary>
+    /// <returns></returns>
+    public static CLBaseDicData<int, CLHeroEntity> LoadHeroData()
+    {
+        string tableKey = "data_hero";
+        object entitys = null;
+        CLBaseDicData<int, CLHeroEntity> heroEntity = null;
+
+        if (!_dataManage.TryFind(tableKey, out entitys))
+        {
+            CLJson uiData = FindGameData(tableKey);
+            if (uiData == null) return null;
+
+            heroEntity = new CLBaseDicData<int, CLHeroEntity>();
+            for (int i = 0, len = uiData.Length; i < len; i++)
+            {
+                CLHeroEntity entity = uiData.GetValue<CLHeroEntity>(i);
+                heroEntity.Add(entity.HeroId, entity);
+            }
+            _dataManage.Add(tableKey, heroEntity);
+        }
+        else
+            heroEntity = (CLBaseDicData<int, CLHeroEntity>)entitys;
+        return heroEntity;
+    }
+
+
+    /// <summary>
+    /// 获得侠客数据
+    /// </summary>
+    /// <param name="id">侠客id</param>
+    /// <returns></returns>
+    public static CLHeroEntity GetHeroData(int heroId)
+    {
+        CLBaseDicData<int, CLHeroEntity> heroEntity = LoadHeroData();
+        if (heroEntity == null) return null;
+        return heroEntity.Contains(heroId) ? heroEntity.Find(heroId) : null;
+    }
+
+    /// <summary>
+    /// 得到所有的侠客
+    /// </summary>
+    /// <returns></returns>
+    public static List<CLHeroEntity> GetHeroAllList()
+    {
+        CLBaseDicData<int, CLHeroEntity> heroEntity = LoadHeroData();
+        if (heroEntity == null) return new List<CLHeroEntity>();
+        return heroEntity.FindAllValues();
+    }
 }
 

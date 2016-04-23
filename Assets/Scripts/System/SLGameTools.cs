@@ -100,5 +100,44 @@ public sealed class SLGameTools
         });
     }
 
+    /// <summary>
+    /// 得到品质框名字
+    /// </summary>
+    /// <param name="qual"></param>
+    public static string ToQualitySprite(int qual)
+    {
+        string result = "物品框白色";
+        switch (qual)
+        {
+            case 2:
+                result = "物品框紫色";
+                break;
+            case 3:
+                result = "物品框橙色";
+                break;
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// 得到品质的颜色
+    /// </summary>
+    /// <param name="qual"></param>
+    /// <returns></returns>
+    public static string ToQualityColor(int qual)
+    {
+        string result = "[ffffff]";
+        switch (qual)
+        {
+            case 2:
+                result = "[ff00ff]";
+                break;
+            case 3:
+                result = "[ffa400]";
+                break;
+        }
+        return result;
+    }
+
 }
 
